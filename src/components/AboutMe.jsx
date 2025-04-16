@@ -97,7 +97,7 @@ export default function About() {
             {/* Floating hobby icons around photo */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               className="absolute -left-8 -top-8 flex h-16 w-16 items-center justify-center rounded-full bg-blue-400/10"
             >
               <FaRocket className="text-xl text-blue-400" />
@@ -189,10 +189,17 @@ export default function About() {
               {passions.map((passion, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 20, scale: 1 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 + 0.7 }}
-                  className={`rounded-xl p-4 ${passion.bg} border border-gray-700`}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  transition={{
+                    delay: i * 0.1 + 0.7,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10,
+                    scale: { duration: 0.2 },
+                  }} // Add a spring animation
+                  className={`rounded-xl p-4 ${passion.bg} border border-gray-700 hover:scale-125`}
                 >
                   <div className={`${passion.color} mb-2`}>{passion.icon}</div>
                   <h3 className="mb-1 font-medium text-white">

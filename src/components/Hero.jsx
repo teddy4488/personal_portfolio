@@ -1,45 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-// Replace these with your actual images or illustrations
-import DroneImage from "../assets/hero/drone.png"; // Your quadcopter
-import CodeImage from "../assets/hero/code.png"; // Code screenshot
-import HardwareImage from "../assets/hero/hardware.png"; // ESP32/3D printer
-
-const HeroContent = [
-  {
-    id: 1,
-    img: DroneImage,
-    title: "Building Autonomous Systems",
-    subtitle: "Quadcopters | ESP32 | NRF24L01+",
-    description:
-      "I design and program drones that navigate real-world environments with sensor fusion.",
-    cta: "See Project",
-    link: "#projects",
-  },
-  {
-    id: 2,
-    img: CodeImage,
-    title: "Full-Stack Developer",
-    subtitle: "React | Tailwind | Node.js",
-    description:
-      "I build responsive web apps with clean UI and efficient backend systems.",
-    cta: "View Code",
-    link: "https://github.com/yourusername",
-  },
-  {
-    id: 3,
-    img: HardwareImage,
-    title: "Hardware Tinkerer",
-    subtitle: "3D Printing | Arduino | Robotics",
-    description:
-      "From PCB designs to 3D-printed enclosures, I bring ideas to physical life.",
-    cta: "Learn More",
-    link: "#skills",
-  },
-];
+// Replace these with your actual images
+import DroneImage from "../assets/hero/drone.png";
+import CodeImage from "../assets/hero/code.png";
+import HardwareImage from "../assets/hero/hardware.png";
 
 const Hero = () => {
   const sliderSettings = {
@@ -54,37 +22,68 @@ const Hero = () => {
     cssEase: "ease-in-out",
     pauseOnHover: false,
     appendDots: (dots) => (
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 transform">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <ul className="flex space-x-2">{dots}</ul>
       </div>
     ),
     customPaging: () => (
-      <div className="h-3 w-3 rounded-full bg-gray-500 transition-colors hover:bg-blue-400"></div>
+      <div className="h-2 w-2 rounded-full bg-gray-500 transition-all hover:bg-blue-400" />
     ),
   };
 
+  const slides = [
+    {
+      title: "Building Autonomous Systems",
+      subtitle: "Quadcopters | ESP32 | NRF24L01+",
+      description:
+        "I design and program drones that navigate real-world environments with sensor fusion.",
+      image: DroneImage,
+      cta: "See Project",
+      link: "#projects",
+    },
+    {
+      title: "Full-Stack Developer",
+      subtitle: "React | Tailwind | Node.js",
+      description:
+        "I build responsive web apps with clean UI and efficient backend systems.",
+      image: CodeImage,
+      cta: "View Code",
+      link: "https://github.com/yourusername",
+    },
+    {
+      title: "Hardware Tinkerer",
+      subtitle: "3D Printing | Arduino | Robotics",
+      description:
+        "From PCB designs to 3D-printed enclosures, I bring ideas to physical life.",
+      image: HardwareImage,
+      cta: "Learn More",
+      link: "#skills",
+    },
+  ];
+
   return (
-    <div
-      id="home"
-      className="relative min-h-[600px] overflow-hidden bg-gray-900 sm:min-h-[700px]"
-    >
-      {/* Animated grid background (tech vibe) */}
+    <section id="home" className="relative min-h-[600px] sm:min-h-[700px]">
+      {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='pattern' width='40' height='40' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'%3E%3Crect width='20' height='20' fill='rgba(255,255,255,0.05)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23pattern)'/%3E%3C/svg%3E")`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
-      {/* Hero slider */}
+      {/* Slider */}
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8">
-        <Slider {...sliderSettings} className="h-[600px]">
-          {HeroContent.map((slide) => (
-            <div key={slide.id} className="pt-16 sm:pt-0">
-              <div className="grid h-[550px] grid-cols-1 place-items-center sm:h-[650px] md:grid-cols-2">
-                {/* Text content */}
+        <Slider {...sliderSettings} className="h-full">
+          {slides.map((slide, index) => (
+            <div key={index} className="pt-16 sm:pt-0">
+              <div className="grid h-[500px] grid-cols-1 items-center sm:h-[600px] md:grid-cols-2">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="space-y-4 text-center sm:space-y-6 md:text-left"
+                  className="space-y-4 text-center md:text-left"
                 >
                   <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
                     {slide.title}
@@ -113,77 +112,26 @@ const Hero = () => {
                       Contact Me
                     </motion.a>
                   </div>
-                  {/* Social links (small screens) */}
-                  <div className="flex justify-center space-x-4 pt-4 md:hidden md:justify-start">
-                    <a
-                      href="https://github.com/yourusername"
-                      className="text-gray-400 hover:text-white"
-                    >
-                      <FiGithub className="text-xl" />
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/yourusername"
-                      className="text-gray-400 hover:text-white"
-                    >
-                      <FiLinkedin className="text-xl" />
-                    </a>
-                  </div>
                 </motion.div>
 
-                {/* Image */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="relative"
+                  transition={{ delay: 0.2 }}
+                  className="relative mt-8 md:mt-0"
                 >
                   <img
-                    src={slide.img}
+                    src={slide.image}
                     alt={slide.title}
                     className="mx-auto w-full max-w-md transition-transform duration-300 hover:scale-105"
                   />
-                  {/* Floating tech badges */}
-                  {slide.id === 1 && (
-                    <motion.div
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="absolute -bottom-4 left-8 rounded-full border border-blue-400/50 bg-gray-800/80 px-3 py-1 text-xs text-blue-400 backdrop-blur-sm"
-                    >
-                      MQTT + Socket.io
-                    </motion.div>
-                  )}
                 </motion.div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
-
-      {/* Social links (large screens) */}
-      <div className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 transform flex-col space-y-4 md:flex">
-        <motion.a
-          href="https://github.com/yourusername"
-          whileHover={{ y: -3 }}
-          className="text-gray-400 hover:text-white"
-        >
-          <FiGithub className="text-xl" />
-        </motion.a>
-        <motion.a
-          href="https://linkedin.com/in/yourusername"
-          whileHover={{ y: -3 }}
-          className="text-gray-400 hover:text-white"
-        >
-          <FiLinkedin className="text-xl" />
-        </motion.a>
-        <motion.a
-          href="/resume.pdf"
-          whileHover={{ y: -3 }}
-          className="text-gray-400 hover:text-white"
-        >
-          <FiDownload className="text-xl" />
-        </motion.a>
-      </div>
-    </div>
+    </section>
   );
 };
 
