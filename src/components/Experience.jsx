@@ -7,10 +7,10 @@ import MyQuadcopter from "../assets/Quadcopter.svg?react";
 export default function Experience() {
   const projectExperience = [
     {
-      role: "Lead Developer - Autonomous Delivery Quadcopter",
+      role: "Lead Developer - Delivery Quadcopter",
       duration: "Final Year Project (9 months)",
       responsibilities: [
-        "Designed ESP32-based flight controller with NEO-6M GPS and ESP-CAM modules",
+        "Designed Arduino-based flight controller with NEO-6M GPS and ESP-CAM modules",
         "Implemented real-time telemetry using MQTT and Socket.io",
         "Developed web dashboard with live camera feed and GPS tracking",
         "Created custom controller with Arduino for manual override capability",

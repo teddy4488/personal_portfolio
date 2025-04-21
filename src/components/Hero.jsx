@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Replace these with your actual images
-import DroneImage from "../assets/hero/drone.png";
-import CodeImage from "../assets/hero/code.png";
-import HardwareImage from "../assets/hero/hardware.png";
+// Image imports
+import DroneImage from "../assets/drone.png";
+import FullstackImage from "../assets/real_fullstack.png";
+import HardwareImage from "../assets/teddy_and_teddy.png";
 
 const Hero = () => {
   const sliderSettings = {
@@ -22,7 +21,7 @@ const Hero = () => {
     cssEase: "ease-in-out",
     pauseOnHover: false,
     appendDots: (dots) => (
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-8">
         <ul className="flex space-x-2">{dots}</ul>
       </div>
     ),
@@ -33,20 +32,20 @@ const Hero = () => {
 
   const slides = [
     {
-      title: "Building Autonomous Systems",
-      subtitle: "Quadcopters | ESP32 | NRF24L01+",
+      title: "An enthusiat of Drone Production",
+      subtitle: "Quadcopters | ESP32 | NRF24L01+ | Arduino",
       description:
-        "I design and program drones that navigate real-world environments with sensor fusion.",
+        "I am highly motivated to design and program drones that navigate real-world environments with sensor fusion.",
       image: DroneImage,
       cta: "See Project",
       link: "#projects",
     },
     {
       title: "Full-Stack Developer",
-      subtitle: "React | Tailwind | Node.js",
+      subtitle: "React | Mongo DB | Node.js",
       description:
         "I build responsive web apps with clean UI and efficient backend systems.",
-      image: CodeImage,
+      image: FullstackImage,
       cta: "View Code",
       link: "https://github.com/yourusername",
     },
@@ -62,7 +61,10 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[600px] sm:min-h-[700px]">
+    <section
+      id="home"
+      className="relative h-auto min-h-[500px] sm:min-h-[600px]"
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
         <div
@@ -78,22 +80,21 @@ const Hero = () => {
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8">
         <Slider {...sliderSettings} className="h-full">
           {slides.map((slide, index) => (
-            <div key={index} className="pt-16 sm:pt-0">
-              <div className="grid h-[500px] grid-cols-1 items-center sm:h-[600px] md:grid-cols-2">
+            <div key={index} className="flex h-full items-center pt-16 sm:pt-0">
+              <div className="flex h-full w-full flex-col items-center justify-center md:grid md:grid-cols-2">
+                {/* Text Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="space-y-4 text-center md:text-left"
+                  className="flex flex-col items-center space-y-4 px-4 py-8 text-center md:items-start md:py-0 md:text-left"
                 >
-                  <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+                  <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
                     {slide.title}
                   </h1>
                   <p className="text-lg text-blue-400 sm:text-xl">
                     {slide.subtitle}
                   </p>
-                  <p className="mx-auto max-w-md text-gray-300 md:mx-0">
-                    {slide.description}
-                  </p>
+                  <p className="max-w-md text-gray-300">{slide.description}</p>
                   <div className="flex flex-wrap justify-center gap-4 md:justify-start">
                     <motion.a
                       href={slide.link}
@@ -114,16 +115,17 @@ const Hero = () => {
                   </div>
                 </motion.div>
 
+                {/* Image */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="relative mt-8 md:mt-0"
+                  className="flex h-full items-center justify-center p-4 md:p-8"
                 >
                   <img
                     src={slide.image}
                     alt={slide.title}
-                    className="mx-auto w-full max-w-md transition-transform duration-300 hover:scale-105"
+                    className="h-auto max-h-[300px] w-full max-w-md object-contain transition-transform duration-300 hover:scale-105 sm:max-h-[400px]"
                   />
                 </motion.div>
               </div>
