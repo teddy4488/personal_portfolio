@@ -26,7 +26,7 @@ export default function Education() {
       highlights: [
         "Focus on Physics, Chemistry, and Mathematics",
         "Developed foundational analytical skills",
-        "Participated in regional science fairs",
+        "Participated in extra curricular activities (athletics)",
       ],
     },
   ];
@@ -35,17 +35,30 @@ export default function Education() {
     {
       icon: <FiCode />,
       name: "Programming",
-      items: ["Python", "C++", "JavaScript", "Arduino"],
+      items: ["HTML", "CSS", "Java", "C++", "JavaScript", "Arduino", "python"],
     },
     {
       icon: <FiCpu />,
       name: "Hardware",
-      items: ["ESP32", "NRF24L01+", "3D Printing", "PCB Design"],
+      items: [
+        "ESP32",
+        "NRF24L01+",
+        "3D Printing",
+        "PCB Design",
+        "Arduino UNO/NANO",
+        "NEO-6M GPS Module",
+        "mpu6050",
+      ],
     },
     {
       icon: <FiBook />,
       name: "Theoretical",
-      items: ["Data Structures", "Machine Learning", "Computer Vision"],
+      items: [
+        "Embedded Systems",
+        "Data Structures",
+        "Machine Learning",
+        "Computer Vision",
+      ],
     },
   ];
 

@@ -4,27 +4,65 @@ import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiArduino, SiMongodb, SiRedux, SiSocketdotio } from "react-icons/si";
 import MyQuadcopter from "../assets/Quadcopter.svg?react";
 
+// Technology icons mapping
+const techIcons = {
+  // Hardware
+  "Arduino UNO/NANO": <SiArduino className="mr-1 inline text-lg" />,
+  "ESP-32": <FiCpu className="mr-1 inline text-lg" />,
+  "NRF24L01+": <FiWifi className="mr-1 inline text-lg" />,
+  "NEO-6M GPS": <FiWifi className="mr-1 inline text-lg" />,
+  "3d printing": <FiServer className="mr-1 inline text-lg" />,
+
+  // Software
+  React: <FaReact className="mr-1 inline text-lg" />,
+  "Node.js": <FaNodeJs className="mr-1 inline text-lg" />,
+  "mongo DB": <SiMongodb className="mr-1 inline text-lg" />,
+  "Express.js": <FiCode className="mr-1 inline text-lg" />,
+  "Tailwind CSS": <FiCode className="mr-1 inline text-lg" />,
+  Redux: <SiRedux className="mr-1 inline text-lg" />,
+  MQTT: <FiWifi className="mr-1 inline text-lg" />,
+  "Socket.io": <SiSocketdotio className="mr-1 inline text-lg" />,
+  "Arduino IDE": <SiArduino className="mr-1 inline text-lg" />,
+
+  // Protocols
+  I2C: <FiServer className="mr-1 inline text-lg" />,
+  UART: <FiServer className="mr-1 inline text-lg" />,
+  SPI: <FiServer className="mr-1 inline text-lg" />,
+  SoftwareSerial: <FiServer className="mr-1 inline text-lg" />,
+};
+
 export default function Experience() {
   const projectExperience = [
     {
       role: "Lead Developer - Delivery Quadcopter",
       duration: "Final Year Project (9 months)",
       responsibilities: [
-        "Designed Arduino-based flight controller with NEO-6M GPS and ESP-CAM modules",
+        "Designed Arduino-based Quadcopter with NEO-6M GPS and ESP-CAM modules",
         "Implemented real-time telemetry using MQTT and Socket.io",
-        "Developed web dashboard with live camera feed and GPS tracking",
-        "Created custom controller with Arduino for manual override capability",
+        "Created custom controller with ESP-32 for manual override capability",
         "Integrated payload release mechanism with servo control",
+        "Developed web dashboard for Admins and Pilots with live camera feed and GPS tracking",
+        "Developed a user-friendly website for users to place delivery orders",
       ],
       technologies: {
         Hardware: [
-          "Arduino",
-          "ESP32",
+          "Arduino UNO/NANO",
+          "ESP-32",
           "NRF24L01+",
           "NEO-6M GPS",
-          "PWM Control",
+          "3d printing",
         ],
-        Software: ["React", "Node.js", "Redux", "MQTT", "Socket.io"],
+        Software: [
+          "React",
+          "Node.js",
+          "mongo DB",
+          "Express.js",
+          "Tailwind CSS",
+          "Redux",
+          "MQTT",
+          "Socket.io",
+          "Arduino IDE",
+        ],
         Protocols: ["I2C", "UART", "SPI", "SoftwareSerial"],
       },
     },
@@ -117,14 +155,24 @@ export default function Experience() {
                           className="rounded-lg border border-gray-600 p-4"
                         >
                           <h4 className="mb-3 font-semibold text-blue-400">
+                            {category === "Hardware" ? (
+                              <FiCpu className="mr-2 inline" />
+                            ) : category === "Software" ? (
+                              <FiCode className="mr-2 inline" />
+                            ) : (
+                              <FiServer className="mr-2 inline" />
+                            )}
                             {category}
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {items.map((tech) => (
                               <span
                                 key={tech}
-                                className="rounded-full bg-gray-800 px-3 py-1 text-sm"
+                                className="flex items-center rounded-full bg-gray-800 px-3 py-1 text-sm"
                               >
+                                {techIcons[tech] || (
+                                  <FiDatabase className="mr-1 inline text-lg" />
+                                )}
                                 {tech}
                               </span>
                             ))}
@@ -169,6 +217,9 @@ export default function Experience() {
                     <div key={i}>
                       <div className="mb-1 flex justify-between">
                         <span className="text-sm text-gray-300">
+                          {techIcons[skill.name] || (
+                            <FiDatabase className="mr-1 inline text-lg" />
+                          )}
                           {skill.name}
                         </span>
                         <span className="text-xs text-blue-400">

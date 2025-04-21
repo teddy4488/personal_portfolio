@@ -1,12 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FiGithub,
-  FiExternalLink,
-  FiX,
-  FiChevronLeft,
-  FiChevronRight,
-} from "react-icons/fi";
+import { FiGithub, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,10 +26,7 @@ const projects = [
       "NEO-6M GPS Module",
     ],
     image: DroneImage,
-    links: [
-      { icon: <FiGithub />, url: "#" },
-      { icon: <FiExternalLink />, url: "#" },
-    ],
+    links: [], // No links for this project
   },
   {
     title: "Drone Delivery Service Website with IoT Dashboard",
@@ -53,9 +44,11 @@ const projects = [
     ],
     image: CodeImage,
     links: [
-      { icon: <FiGithub />, url: "#" },
-      { icon: <FiExternalLink />, url: "#" },
-    ],
+      {
+        icon: <FiGithub />,
+        url: "https://github.com/Tewodros-Yirga/DDS-Real-user-frontend",
+      },
+    ], // Only GitHub link
   },
   {
     title: "ESP-32 based Quadcopter controller",
@@ -65,10 +58,7 @@ const projects = [
       "The handheld controller is based on an ESP32 and features joystick inputs and servo controls. It wirelessly transmits real-time commands to the quadcopter using the NRF24L01+ module, ensuring responsive and accurate maneuvering. At the same time it also receives gps location data from the quadcopter and transmit it to the backend server using mqtt. Designed for both flexibility and expandability, the controller integrates seamlessly with the flight system and lays the groundwork for future features like telemetry feedback and mobile app control.",
     tags: ["ESP-32", "NRF24L01", "joystick", "potentiometer", "MQTT"],
     image: Controller,
-    links: [
-      { icon: <FiGithub />, url: "#" },
-      { icon: <FiExternalLink />, url: "#" },
-    ],
+    links: [], // No links for this project
   },
   {
     title: "Quadcopter Flight System",
@@ -86,22 +76,20 @@ const projects = [
       "MQTT-based ground station communication for GPS location readings",
     ],
     media: {
-      type: "video", // Can be "image" or "video"
-      src: QuadcopterTrial, // Path to your video file
-      thumbnail: "/images/quadcopter-thumbnail.jpg", // Fallback thumbnail
+      type: "video",
+      src: QuadcopterTrial,
+      thumbnail: "/images/quadcopter-thumbnail.jpg",
       alt: "Quadcopter trial flight demonstration",
     },
     tags: ["Arduino UNO", "PID Control", "MQTT", "React Dashboard"],
-    links: [
-      { icon: <FiGithub />, url: "#", label: "Flight Controller Code" },
-      { icon: <FiGithub />, url: "#", label: "Ground Station Code" },
-      { icon: <FiExternalLink />, url: "#", label: "Flight Demo" },
-    ],
+    links: [], // No links for this project
   },
 ];
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const sliderRef = useRef(null);
+
   const sliderSettings = {
     dots: true,
     arrows: false,
@@ -159,21 +147,45 @@ export default function Projects() {
                   whileHover={{ y: -5 }}
                   className="flex h-full flex-col overflow-hidden rounded-xl bg-gray-800 transition-all hover:shadow-lg hover:shadow-blue-500/20"
                 >
-                  <div className="relative h-48 overflow-hidden bg-gray-700">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition-transform hover:scale-105"
-                    />
+                  <div className="relative aspect-video h-48 overflow-hidden bg-gray-700">
+                    {project.media?.type === "video" ? (
+                      <>
+                        <video
+                          className="h-full w-full object-contain"
+                          poster={project.media.thumbnail}
+                          muted
+                          loop
+                          playsInline
+                          autoPlay
+                        >
+                          <source src={project.media.src} type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="rounded-full bg-black/50 p-3 text-white">
+                            <svg
+                              className="h-8 w-8"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M6.3 2.8L17 10 6.3 17.2V2.8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform hover:scale-105"
+                      />
+                    )}
                   </div>
 
                   <div className="flex flex-grow flex-col p-6">
                     <h3 className="mb-2 text-xl font-bold text-white">
                       {project.title}
                     </h3>
-                    <p className="mb-4 flex-grow text-gray-300">
-                      {project.description}
-                    </p>
+                    <p className="mb-4 text-gray-300">{project.shortDesc}</p>
 
                     <div className="mb-4 flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
@@ -186,7 +198,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="mt-auto flex items-center justify-between">
                       <div className="flex space-x-4">
                         {project.links.map((link, i) => (
                           <motion.a
@@ -244,7 +256,7 @@ export default function Projects() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-gray-800"
+              className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl bg-gray-800"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
@@ -254,25 +266,23 @@ export default function Projects() {
                 >
                   <FiX className="text-2xl" />
                 </button>
-                <div className="relative h-64 overflow-hidden bg-gray-700">
+                <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
                   {selectedProject.media?.type === "video" ? (
                     <video
                       controls
-                      muted
-                      className="h-full w-full object-cover"
-                      poster={selectedProject.image} // Fallback to regular image if no thumbnail
+                      className="h-full w-full object-contain"
+                      poster={selectedProject.media.thumbnail}
                     >
                       <source
                         src={selectedProject.media.src}
                         type="video/mp4"
                       />
-                      Your browser does not support the video tag.
                     </video>
                   ) : (
                     <img
                       src={selectedProject.image}
                       alt={selectedProject.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain"
                     />
                   )}
                 </div>
@@ -282,17 +292,25 @@ export default function Projects() {
                 <h3 className="mb-2 text-2xl font-bold text-white">
                   {selectedProject.title}
                 </h3>
-                {/* Detailed Description Section */}
+
                 <div className="mb-6 space-y-4">
                   <h4 className="text-lg font-semibold text-blue-400">
                     Project Overview
                   </h4>
                   <p className="text-gray-300">{selectedProject.fullDesc}</p>
 
-                  {/* Technical Details Section */}
-                  <h4 className="text-lg font-semibold text-blue-400">
-                    Technical Implementation
-                  </h4>
+                  {selectedProject.technicalDetails && (
+                    <>
+                      <h4 className="text-lg font-semibold text-blue-400">
+                        Technical Implementation
+                      </h4>
+                      <ul className="ml-6 list-disc text-gray-300">
+                        {selectedProject.technicalDetails.map((detail, i) => (
+                          <li key={i}>{detail}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
 
                 <div className="mb-6 flex flex-wrap gap-2">
@@ -306,22 +324,24 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4">
-                  {selectedProject.links.map((link, i) => (
-                    <motion.a
-                      key={i}
-                      href={link.url}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-white"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.icon}
-                      <span>{i === 0 ? "View Code" : "Live Demo"}</span>
-                    </motion.a>
-                  ))}
-                </div>
+                {selectedProject.links.length > 0 && (
+                  <div className="flex flex-wrap gap-4">
+                    {selectedProject.links.map((link, i) => (
+                      <motion.a
+                        key={i}
+                        href={link.url}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.icon}
+                        <span>View Code</span>
+                      </motion.a>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

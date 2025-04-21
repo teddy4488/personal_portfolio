@@ -1,6 +1,36 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FiMenu, FiX, FiCode, FiCpu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
+
+const Logo = ({ className = "" }) => (
+  <svg
+    viewBox="0 0 100 100"
+    className={`h-8 w-8 ${className}`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Background circle */}
+    <circle cx="50" cy="50" r="45" fill="#1E40AF" opacity="0.2" />
+
+    {/* T letter (top part) */}
+    <rect x="30" y="25" width="40" height="10" rx="2" fill="#60A5FA" />
+    <rect x="55" y="35" width="10" height="30" rx="2" fill="#60A5FA" />
+
+    {/* A letter (bottom part) */}
+    <polygon points="30,70 70,70 60,40 40,40" fill="#60A5FA" opacity="0.8" />
+    <rect x="45" y="55" width="10" height="15" rx="1" fill="#1F2937" />
+
+    {/* Glow effect */}
+    <circle
+      cx="50"
+      cy="50"
+      r="45"
+      fill="none"
+      stroke="#60A5FA"
+      strokeWidth="1"
+      strokeOpacity="0.3"
+    />
+  </svg>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +57,8 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const linkedinUrl = "https://www.linkedin.com/in/tewodros-abere-";
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -39,13 +71,14 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo (Left) */}
-          <motion.div
+          <motion.a
+            href="#home"
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <FiCpu className="text-xl text-blue-400" />
+            <Logo className="text-blue-400" />
             <span className="text-xl font-bold text-white">Tewodros.dev</span>
-          </motion.div>
+          </motion.a>
 
           {/* Desktop Links (Center) */}
           <div className="hidden items-center space-x-8 md:flex">
@@ -55,12 +88,11 @@ const Navbar = () => {
                 href={link.href}
                 whileHover={{
                   scale: 1.05,
-                  color: "#60A5FA", // Tailwind blue-400
+                  color: "#60A5FA",
                 }}
                 className="relative rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400"
               >
                 {link.name}
-                {/* Active link underline */}
                 <motion.span
                   layoutId="nav-underline"
                   className="absolute bottom-0 left-0 h-0.5 w-full bg-blue-400"
@@ -71,9 +103,11 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button (Right) */}
+          {/* CTA Button (Right) - Links to LinkedIn */}
           <motion.a
-            href="#contact"
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 0 10px rgba(96, 165, 250, 0.5)",
@@ -121,11 +155,13 @@ const Navbar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="#contact"
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               className="mt-2 block w-full rounded-md bg-blue-600 px-4 py-2 text-center text-base font-medium text-white"
             >
-              Contact
+              Hire Me
             </motion.a>
           </div>
         </motion.div>

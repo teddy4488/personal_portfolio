@@ -6,7 +6,7 @@ import {
   FiPhone,
   FiMapPin,
 } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-800 bg-gray-900">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* About Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/teddy4488"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
@@ -38,7 +38,7 @@ export default function Footer() {
                 <FiGithub className="text-2xl" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/tewodros-abere-"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
@@ -47,13 +47,13 @@ export default function Footer() {
                 <FiLinkedin className="text-2xl" />
               </motion.a>
               <motion.a
-                href="https://twitter.com/yourhandle"
+                href="https://t.me/teddy444" // Replace with your actual Telegram URL
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
                 className="text-gray-400 hover:text-white"
               >
-                <FaXTwitter className="text-2xl" />
+                <FaTelegram className="text-2xl" />
               </motion.a>
             </div>
           </motion.div>
@@ -138,35 +138,6 @@ export default function Footer() {
                 <span className="text-gray-400">Bahir Dar, Ethiopia</span>
               </li>
             </ul>
-          </motion.div>
-
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h3 className="text-xl font-bold text-white">Newsletter</h3>
-            <p className="text-gray-400">
-              Subscribe to get updates on my latest projects and articles.
-            </p>
-            <form className="flex flex-col space-y-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white focus:border-blue-400 focus:outline-none"
-                required
-              />
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-              >
-                Subscribe
-              </motion.button>
-            </form>
           </motion.div>
         </div>
 

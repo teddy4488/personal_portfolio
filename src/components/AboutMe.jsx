@@ -1,14 +1,8 @@
 import { motion } from "framer-motion";
-import {
-  FiGlobe,
-  FiCpu,
-  FiMail,
-  FiPhone,
-  FiMapPin,
-  FiAward,
-} from "react-icons/fi";
+import { FiGlobe, FiMail, FiPhone, FiMapPin, FiAward } from "react-icons/fi";
 import { FaRocket, FaSpaceShuttle } from "react-icons/fa";
 import { GiCircuitry, GiGraduateCap } from "react-icons/gi";
+import teddyImage from "../assets/teddy.jpg";
 
 export default function About() {
   const passions = [
@@ -88,7 +82,7 @@ export default function About() {
           <div className="relative w-full lg:w-2/5">
             <div className="relative z-10 mx-auto h-80 w-64 overflow-hidden rounded-2xl border-4 border-blue-400/30 lg:mx-0">
               <img
-                src="src/assets/teddy.jpg"
+                src={teddyImage}
                 alt="Teddy"
                 className="h-full w-full object-cover"
               />
@@ -198,7 +192,7 @@ export default function About() {
                     stiffness: 300,
                     damping: 10,
                     scale: { duration: 0.2 },
-                  }} // Add a spring animation
+                  }}
                   className={`rounded-xl p-4 ${passion.bg} border border-gray-700 hover:scale-125`}
                 >
                   <div className={`${passion.color} mb-2`}>{passion.icon}</div>

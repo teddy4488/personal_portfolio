@@ -12,7 +12,7 @@ export default function Skills() {
       skills: [
         { name: "C++", icon: <SiCplusplus className="text-xl" />, level: 85 },
         {
-          name: "Arduino (C)",
+          name: "Arduino (C++)",
           icon: <SiArduino className="text-xl" />,
           level: 90,
         },

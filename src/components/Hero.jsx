@@ -17,7 +17,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7000,
     cssEase: "ease-in-out",
     pauseOnHover: false,
     appendDots: (dots) => (
@@ -46,8 +46,8 @@ const Hero = () => {
       description:
         "I build responsive web apps with clean UI and efficient backend systems.",
       image: FullstackImage,
-      cta: "View Code",
-      link: "https://github.com/yourusername",
+      cta: "View Github Page",
+      link: "https://github.com/teddy4488",
     },
     {
       title: "Hardware Tinkerer",
@@ -63,7 +63,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative h-auto min-h-[500px] sm:min-h-[600px]"
+      className="relative h-screen min-h-[500px] sm:min-h-[600px]"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
@@ -78,10 +78,10 @@ const Hero = () => {
 
       {/* Slider */}
       <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8">
-        <Slider {...sliderSettings} className="h-full">
+        <Slider {...sliderSettings} className="h-max">
           {slides.map((slide, index) => (
-            <div key={index} className="flex h-full items-center pt-16 sm:pt-0">
-              <div className="flex h-full w-full flex-col items-center justify-center md:grid md:grid-cols-2">
+            <div key={index} className="flex h-max items-center pt-16 sm:pt-0">
+              <div className="flex h-screen w-full flex-col items-center justify-center md:grid md:grid-cols-2">
                 {/* Text Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
