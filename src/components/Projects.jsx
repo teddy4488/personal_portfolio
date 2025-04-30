@@ -26,7 +26,7 @@ const projects = [
       "NEO-6M GPS Module",
     ],
     image: DroneImage,
-    links: [], // No links for this project
+    links: [],
   },
   {
     title: "Drone Delivery Service Website with IoT Dashboard",
@@ -48,7 +48,7 @@ const projects = [
         icon: <FiGithub />,
         url: "https://github.com/Tewodros-Yirga/DDS-Real-user-frontend",
       },
-    ], // Only GitHub link
+    ],
   },
   {
     title: "ESP-32 based Quadcopter controller",
@@ -58,7 +58,7 @@ const projects = [
       "The handheld controller is based on an ESP32 and features joystick inputs and servo controls. It wirelessly transmits real-time commands to the quadcopter using the NRF24L01+ module, ensuring responsive and accurate maneuvering. At the same time it also receives gps location data from the quadcopter and transmit it to the backend server using mqtt. Designed for both flexibility and expandability, the controller integrates seamlessly with the flight system and lays the groundwork for future features like telemetry feedback and mobile app control.",
     tags: ["ESP-32", "NRF24L01", "joystick", "potentiometer", "MQTT"],
     image: Controller,
-    links: [], // No links for this project
+    links: [],
   },
   {
     title: "Quadcopter Flight System",
@@ -82,7 +82,7 @@ const projects = [
       alt: "Quadcopter trial flight demonstration",
     },
     tags: ["Arduino UNO", "PID Control", "MQTT", "React Dashboard"],
-    links: [], // No links for this project
+    links: [],
   },
 ];
 
@@ -269,7 +269,9 @@ export default function Projects() {
                 <div className="relative aspect-video w-full overflow-hidden bg-gray-900">
                   {selectedProject.media?.type === "video" ? (
                     <video
-                      controls
+                      autoPlay
+                      muted
+                      loop
                       className="h-full w-full object-contain"
                       poster={selectedProject.media.thumbnail}
                     >
