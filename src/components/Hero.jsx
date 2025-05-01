@@ -134,7 +134,10 @@ const Hero = () => {
             </div>
           ))}
         </Slider>
-        <div className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 transform flex-col space-y-4 md:flex">
+        <div
+          className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 transform flex-col space-y-4 md:flex"
+          style={{ marginLeft: "1rem" }}
+        >
           <motion.a
             href="https://github.com/teddy4488"
             whileHover={{ y: -3 }}
