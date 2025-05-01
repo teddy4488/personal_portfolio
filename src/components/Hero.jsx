@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
 // Image imports
 import DroneImage from "../assets/drone.png";
 import FullstackImage from "../assets/real_fullstack.png";
 import HardwareImage from "../assets/teddy_and_teddy.png";
 
+import TeddyResume from "../assets/TewodrosAbereResume.pdf";
 const Hero = () => {
   const sliderSettings = {
     dots: true,
@@ -105,12 +106,13 @@ const Hero = () => {
                       {slide.cta}
                     </motion.a>
                     <motion.a
-                      href="#contact"
+                      href={TeddyResume}
+                      download="Tewodros_Abere_Resume.pdf"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="rounded-lg border border-blue-400 px-6 py-3 font-medium text-blue-400 hover:bg-blue-400/10"
                     >
-                      Contact Me
+                      Download CV
                     </motion.a>
                   </div>
                 </motion.div>
@@ -132,6 +134,30 @@ const Hero = () => {
             </div>
           ))}
         </Slider>
+        <div className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 transform flex-col space-y-4 md:flex">
+          <motion.a
+            href="https://github.com/teddy4488"
+            whileHover={{ y: -3 }}
+            className="text-gray-400 hover:text-white"
+          >
+            <FiGithub className="text-xl" />
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/tewodros-abere-"
+            whileHover={{ y: -3 }}
+            className="text-gray-400 hover:text-white"
+          >
+            <FiLinkedin className="text-xl" />
+          </motion.a>
+          <motion.a
+            href={TeddyResume}
+            download="Tewodros_Abere_Resume.pdf"
+            whileHover={{ y: -3 }}
+            className="text-gray-400 hover:text-white"
+          >
+            <FiDownload className="text-xl" />
+          </motion.a>
+        </div>
       </div>
     </section>
   );
