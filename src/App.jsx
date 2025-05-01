@@ -10,32 +10,66 @@ import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+import { FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
+import TeddyResume from "./assets/TewodrosAbereResume.pdf";
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* Background pattern - moved outside content */}
-      <div
-        className="fixed inset-0 -z-10 opacity-20"
-        style={{
-          backgroundImage:
-            "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')",
-          backgroundSize: "40px 40px",
-        }}
-      />
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-gray-900">
+      {/* Compact Sidebar Icons */}
+      <div className="fixed left-3 top-1/2 z-30 hidden -translate-y-1/2 transform md:block">
+        <div className="flex flex-col space-y-4">
+          <motion.a
+            href="https://github.com/teddy4488"
+            whileHover={{ y: -3, scale: 1.15 }}
+            className="text-gray-300 hover:text-white"
+            aria-label="GitHub"
+          >
+            <FiGithub className="text-xl" />
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/tewodros-abere-"
+            whileHover={{ y: -3, scale: 1.1 }}
+            className="text-gray-300 hover:text-white"
+            aria-label="LinkedIn"
+          >
+            <FiLinkedin className="text-xl" />
+          </motion.a>
+          <motion.a
+            href={TeddyResume}
+            download="Tewodros_Abere_Resume.pdf"
+            whileHover={{ y: -3, scale: 1.1 }}
+            className="text-gray-300 hover:text-white"
+            aria-label="Download Resume"
+          >
+            <FiDownload className="text-xl" />
+          </motion.a>
+        </div>
+      </div>
 
-      {/* Content */}
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Education />
-        <Experience />
-        <Skills />
-        <Testimonials />
-        <Contact />
-        <Footer />
+      <div className="w-full px-4 sm:px-5 md:px-6 md:pl-12 lg:pl-14">
+        {" "}
+        <div
+          className="fixed inset-0 -z-10 opacity-20"
+          style={{
+            backgroundImage: "url('data:image/svg+xml,...')",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto w-full max-w-[2000px] 2xl:max-w-[2200px]">
+          <Navbar />
+          <Hero />
+          <About />
+          <Projects />
+          <Education />
+          <Experience />
+          <Skills />
+          <Testimonials />
+          <Contact />
+          <Footer />
+        </div>
       </div>
     </div>
   );

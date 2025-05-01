@@ -78,7 +78,7 @@ const Hero = () => {
       </div>
 
       {/* Slider */}
-      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto h-full px-4 sm:px-6">
         <Slider {...sliderSettings} className="h-max">
           {slides.map((slide, index) => (
             <div key={index} className="flex h-max items-center pt-16 sm:pt-0">
@@ -134,9 +134,9 @@ const Hero = () => {
             </div>
           ))}
         </Slider>
-        <div
+        {/* <div
           className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 transform flex-col space-y-4 md:flex"
-          style={{ marginLeft: "1rem" }}
+          style={{ marginLeft: "2rem" }}
         >
           <motion.a
             href="https://github.com/teddy4488"
@@ -160,7 +160,7 @@ const Hero = () => {
           >
             <FiDownload className="text-xl" />
           </motion.a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
