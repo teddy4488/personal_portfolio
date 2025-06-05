@@ -191,7 +191,7 @@ export default function Education() {
                     {skill.items.map((item, i) => (
                       <span
                         key={i}
-                        className="rounded-full bg-gray-700 px-3 py-1 text-sm"
+                        className="rounded-full bg-gray-700 px-3 py-1 text-sm text-gray-200"
                       >
                         {item}
                       </span>

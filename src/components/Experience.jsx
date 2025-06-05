@@ -168,7 +168,7 @@ export default function Experience() {
                             {items.map((tech) => (
                               <span
                                 key={tech}
-                                className="flex items-center rounded-full bg-gray-800 px-3 py-1 text-sm"
+                                className="flex items-center rounded-full bg-gray-800 px-3 py-1 text-sm text-gray-200"
                               >
                                 {techIcons[tech] || (
                                   <FiDatabase className="mr-1 inline text-lg" />
