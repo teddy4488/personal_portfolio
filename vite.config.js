@@ -4,7 +4,6 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [react(), svgr()],
-  base: "/personal_portfolio/",
   optimizeDeps: {
     include: ["react-slick"], // <-- Add this
   },
