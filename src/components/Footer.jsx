@@ -38,7 +38,7 @@ export default function Footer() {
                 <FiGithub className="text-2xl" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/tewodros-abere-"
+                href="i"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
@@ -47,7 +47,7 @@ export default function Footer() {
                 <FiLinkedin className="text-2xl" />
               </motion.a>
               <motion.a
-                href="https://t.me/teddy444" // Replace with your actual Telegram URL
+                href="https://t.me/teddy444"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FiCpu, FiCode, FiServer, FiWifi, FiType } from "react-icons/fi";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiArduino, SiCplusplus, SiMongodb, SiMysql } from "react-icons/si";
-import { DiJava } from "react-icons/di"; // Java icon from different package
+import { DiJava } from "react-icons/di"; 
 
 export default function Skills() {
   const skillCategories = [

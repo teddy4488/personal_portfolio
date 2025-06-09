@@ -13,14 +13,14 @@ export default function Testimonials() {
     {
       name: "Mr. Abebe Kindie",
       role: "Computer Science Lecturer and IOT lab head",
-      email: "abebedtu@gmail.com", // Added email
+      email: "abebedtu@gmail.com",
       text: "Tewodros has demosntrated remarkable experise in Computer Science, particularly in the areas of IoT (Internet of Things) and software development. One of his most impressive achievements was designing and implementing a drone capable of delivering materials, which included features such as real-time communication with websites and remote-control functionality. This project not only showcased his deep understanding of hardware-software integration but also highlighted his ability to apply theoretical knowledge to solve real-world problems.",
       image: Advisor,
     },
     {
       name: "Mr. Moges Tsegaw",
       role: "computer Science department head",
-      email: "moges.tsegaw@dtu.edu.et", // Added email
+      email: "moges.tsegaw@dtu.edu.et",
       text: "Throughout his time as a student in the Computer Science Department, Tewodros Abere has consistently displyaed a deep passion for the field and an unwavering deidcation to his studies. Moreover, Tewodros Abere possesses excellent communication skills, both written and verbal. He is articulate, confident, and capable of conveying complex ideas clearly and concisely. His ability to effectively communicate technical concepts to both technical and non-technical audiences is truly impressive.",
       image: DtuLogo,
     },
