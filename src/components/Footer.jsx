@@ -38,7 +38,7 @@ export default function Footer() {
                 <FiGithub className="text-2xl" />
               </motion.a>
               <motion.a
-                href="i"
+                href="https://www.linkedin.com/in/tewodros-abere-/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -3 }}

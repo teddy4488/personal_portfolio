@@ -33,7 +33,7 @@ const Hero = () => {
 
   const slides = [
     {
-      title: "A enthusiat of Drone Production",
+      title: "An enthusiat of Drone Production",
       subtitle: "Quadcopters | ESP32 | NRF24L01+ | Arduino",
       description:
         "I am highly motivated to design and program drones that navigate real-world environments with sensor fusion.",
